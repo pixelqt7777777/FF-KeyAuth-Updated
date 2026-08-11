@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37328.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TANISH SILENT KILL", "TANISH SILENT KILL.csproj", "{8FFB1AA3-6112-404B-AEBA-A1A866A7B1FA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{36330923-CB52-71BF-0707-0932ACEB06C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36330923-CB52-71BF-0707-0932ACEB06C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36330923-CB52-71BF-0707-0932ACEB06C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36330923-CB52-71BF-0707-0932ACEB06C2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EF3AC0E5-17E8-422C-9699-1C9B669B3392}
+	EndGlobalSection
+EndGlobal

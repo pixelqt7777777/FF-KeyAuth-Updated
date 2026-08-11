@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <RootNamespace>CSharp_ImGui_Client</RootNamespace>
+    <AssemblyName>TANISH REGEDIT</AssemblyName>
+    <AssemblyTitle>TANISH REGEDIT</AssemblyTitle>
+    <AssemblyProduct>TANISH REGEDIT</AssemblyProduct>
+    <Company>TANISH REGEDIT</Company>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWpf>true</UseWpf>
+    <IncludePackageReferencesDuringMarkupCompilation>false</IncludePackageReferencesDuringMarkupCompilation>
+    <NoWarn>$(NoWarn);WFO1000</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ClickableTransparentOverlay" Version="11.1.0" />
+    <PackageReference Include="ImGui.NET" Version="1.91.6.1" />
+    <PackageReference Include="System.Drawing.Common" Version="9.0.6" />
+  </ItemGroup>
+
+  <!-- Exclude ExternalESP folder (requires ImGui.NET, not included) -->
+  <ItemGroup>
+    <Compile Remove="ExternalESP\**" />
+  </ItemGroup>
+
+  <!-- Bundle Android .so files so they are always next to the exe -->
+  <ItemGroup>
+    <None Include="libs\android\armeabi-v7a\*.*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Link>libs\android\armeabi-v7a\%(Filename)%(Extension)</Link>
+    </None>
+  </ItemGroup>
+
+  <!-- Embed mem_server binary for external ESP -->
+  <ItemGroup>
+    <EmbeddedResource Include="mem_server" />
+  </ItemGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+      </Target>
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+     </Target>
+</Project>

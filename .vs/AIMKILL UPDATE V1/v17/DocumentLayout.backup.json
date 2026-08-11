@@ -1,0 +1,169 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\NOVA UPDATE 1\\NOVA UPDATE 1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{36330923-CB52-71BF-0707-0932ACEB06C2}|NOVA XITERS.csproj|d:\\nova update 1\\nova update 1\\styles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{36330923-CB52-71BF-0707-0932ACEB06C2}|NOVA XITERS.csproj|solutionrelative:styles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36330923-CB52-71BF-0707-0932ACEB06C2}|NOVA XITERS.csproj|d:\\nova update 1\\nova update 1\\particlebackgroundengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{36330923-CB52-71BF-0707-0932ACEB06C2}|NOVA XITERS.csproj|solutionrelative:particlebackgroundengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36330923-CB52-71BF-0707-0932ACEB06C2}|NOVA XITERS.csproj|d:\\nova update 1\\nova update 1\\keyauthappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{36330923-CB52-71BF-0707-0932ACEB06C2}|NOVA XITERS.csproj|solutionrelative:keyauthappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36330923-CB52-71BF-0707-0932ACEB06C2}|NOVA XITERS.csproj|d:\\nova update 1\\nova update 1\\keyauth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{36330923-CB52-71BF-0707-0932ACEB06C2}|NOVA XITERS.csproj|solutionrelative:keyauth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36330923-CB52-71BF-0707-0932ACEB06C2}|NOVA XITERS.csproj|d:\\nova update 1\\nova update 1\\extespconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{36330923-CB52-71BF-0707-0932ACEB06C2}|NOVA XITERS.csproj|solutionrelative:extespconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36330923-CB52-71BF-0707-0932ACEB06C2}|NOVA XITERS.csproj|d:\\nova update 1\\nova update 1\\terminaltheme.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{36330923-CB52-71BF-0707-0932ACEB06C2}|NOVA XITERS.csproj|solutionrelative:terminaltheme.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36330923-CB52-71BF-0707-0932ACEB06C2}|NOVA XITERS.csproj|d:\\nova update 1\\nova update 1\\keyauthconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{36330923-CB52-71BF-0707-0932ACEB06C2}|NOVA XITERS.csproj|solutionrelative:keyauthconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36330923-CB52-71BF-0707-0932ACEB06C2}|NOVA XITERS.csproj|d:\\nova update 1\\nova update 1\\espoverlay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{36330923-CB52-71BF-0707-0932ACEB06C2}|NOVA XITERS.csproj|solutionrelative:espoverlay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36330923-CB52-71BF-0707-0932ACEB06C2}|NOVA XITERS.csproj|d:\\nova update 1\\nova update 1\\apppaths.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{36330923-CB52-71BF-0707-0932ACEB06C2}|NOVA XITERS.csproj|solutionrelative:apppaths.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Styles.xaml",
+              "DocumentMoniker": "D:\\NOVA UPDATE 1\\NOVA UPDATE 1\\Styles.xaml",
+              "RelativeDocumentMoniker": "Styles.xaml",
+              "ToolTip": "D:\\NOVA UPDATE 1\\NOVA UPDATE 1\\Styles.xaml",
+              "RelativeToolTip": "Styles.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-07-22T16:18:45.565Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "KeyAuthAppService.cs",
+              "DocumentMoniker": "D:\\NOVA UPDATE 1\\NOVA UPDATE 1\\KeyAuthAppService.cs",
+              "RelativeDocumentMoniker": "KeyAuthAppService.cs",
+              "ToolTip": "D:\\NOVA UPDATE 1\\NOVA UPDATE 1\\KeyAuthAppService.cs",
+              "RelativeToolTip": "KeyAuthAppService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-22T16:18:25.209Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "KeyAuth.cs",
+              "DocumentMoniker": "D:\\NOVA UPDATE 1\\NOVA UPDATE 1\\KeyAuth.cs",
+              "RelativeDocumentMoniker": "KeyAuth.cs",
+              "ToolTip": "D:\\NOVA UPDATE 1\\NOVA UPDATE 1\\KeyAuth.cs",
+              "RelativeToolTip": "KeyAuth.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-22T16:18:23.571Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ExtEspConfig.cs",
+              "DocumentMoniker": "D:\\NOVA UPDATE 1\\NOVA UPDATE 1\\ExtEspConfig.cs",
+              "RelativeDocumentMoniker": "ExtEspConfig.cs",
+              "ToolTip": "D:\\NOVA UPDATE 1\\NOVA UPDATE 1\\ExtEspConfig.cs",
+              "RelativeToolTip": "ExtEspConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-22T16:18:22.65Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ParticleBackgroundEngine.cs",
+              "DocumentMoniker": "D:\\NOVA UPDATE 1\\NOVA UPDATE 1\\ParticleBackgroundEngine.cs",
+              "RelativeDocumentMoniker": "ParticleBackgroundEngine.cs",
+              "ToolTip": "D:\\NOVA UPDATE 1\\NOVA UPDATE 1\\ParticleBackgroundEngine.cs",
+              "RelativeToolTip": "ParticleBackgroundEngine.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-22T16:18:17.976Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TerminalTheme.cs",
+              "DocumentMoniker": "D:\\NOVA UPDATE 1\\NOVA UPDATE 1\\TerminalTheme.cs",
+              "RelativeDocumentMoniker": "TerminalTheme.cs",
+              "ToolTip": "D:\\NOVA UPDATE 1\\NOVA UPDATE 1\\TerminalTheme.cs",
+              "RelativeToolTip": "TerminalTheme.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-22T16:18:15.983Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "KeyAuthConfig.cs",
+              "DocumentMoniker": "D:\\NOVA UPDATE 1\\NOVA UPDATE 1\\KeyAuthConfig.cs",
+              "RelativeDocumentMoniker": "KeyAuthConfig.cs",
+              "ToolTip": "D:\\NOVA UPDATE 1\\NOVA UPDATE 1\\KeyAuthConfig.cs",
+              "RelativeToolTip": "KeyAuthConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-22T16:16:45.061Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "EspOverlay.cs",
+              "DocumentMoniker": "D:\\NOVA UPDATE 1\\NOVA UPDATE 1\\EspOverlay.cs",
+              "RelativeDocumentMoniker": "EspOverlay.cs",
+              "ToolTip": "D:\\NOVA UPDATE 1\\NOVA UPDATE 1\\EspOverlay.cs",
+              "RelativeToolTip": "EspOverlay.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAuwDkAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-22T16:16:42.121Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AppPaths.cs",
+              "DocumentMoniker": "D:\\NOVA UPDATE 1\\NOVA UPDATE 1\\AppPaths.cs",
+              "RelativeDocumentMoniker": "AppPaths.cs",
+              "ToolTip": "D:\\NOVA UPDATE 1\\NOVA UPDATE 1\\AppPaths.cs",
+              "RelativeToolTip": "AppPaths.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAqwBIAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-22T16:16:39.033Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

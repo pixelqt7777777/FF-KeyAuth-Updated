@@ -1,0 +1,230 @@
+<Window x:Class="CSharp_ImGui_Client.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:CSharp_ImGui_Client"
+        Title="TANISH REGEDIT - Access Portal"
+        Height="700" Width="380"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Border CornerRadius="20"
+            Background="{StaticResource BgBrush}"
+            BorderBrush="{StaticResource GlassBorderGradient}"
+            BorderThickness="1"
+            ClipToBounds="True">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="34" Color="#000000" Opacity="0.95" ShadowDepth="0"/>
+        </Border.Effect>
+
+        <Grid>
+            <!-- Ambient background particles -->
+            <local:ParticleBackgroundEngine x:Name="ParticleCanvas" Opacity="0.55"/>
+
+            <!-- Radial glow accents -->
+            <Ellipse Width="260" Height="260" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-120,0,0" Opacity="0.16">
+                <Ellipse.Fill>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#D4A853" Offset="0"/>
+                        <GradientStop Color="Transparent" Offset="1"/>
+                    </RadialGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+
+            <Grid Margin="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Draggable Title Bar -->
+                <Grid Grid.Row="0" MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="18,0">
+                        <Path Data="M12 2 L20 6 L20 12 L12 22 L4 12 L4 6 Z"
+                              Fill="{StaticResource AccentGradient}"
+                              Width="13" Height="13" Stretch="Uniform" Margin="0,0,8,0"/>
+                        <TextBlock FontFamily="{StaticResource MainFont}" FontWeight="Bold" FontSize="10" Foreground="{StaticResource TextDimBrush}" VerticalAlignment="Center">
+                            <Run Text="TANISH REGEDIT"/>
+                            <Run Text=" · ACCESS PORTAL" Foreground="{StaticResource TextDimBrush}"/>
+                        </TextBlock>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1" Orientation="Horizontal">
+                        <Button Style="{StaticResource TitleBarButton}" Content="—" Click="MinimizeButton_Click"/>
+                        <Button Style="{StaticResource TitleBarCloseButton}" Content="✕" Click="CloseButton_Click"/>
+                    </StackPanel>
+                </Grid>
+
+                <!-- Body -->
+                <Grid Grid.Row="1" Margin="34,10,34,28">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/> <!-- Logo -->
+                        <RowDefinition Height="Auto"/> <!-- Tabs -->
+                        <RowDefinition Height="*"/>    <!-- Input card -->
+                        <RowDefinition Height="Auto"/> <!-- Login button -->
+                        <RowDefinition Height="Auto"/> <!-- Status -->
+                        <RowDefinition Height="Auto"/> <!-- Footnote -->
+                    </Grid.RowDefinitions>
+
+                    <!-- Brand Logo -->
+                    <StackPanel Grid.Row="0" HorizontalAlignment="Center" Margin="0,14,0,30">
+                        <Grid Width="72" Height="72" HorizontalAlignment="Center">
+                            <Ellipse Width="72" Height="72" Opacity="0.14">
+                                <Ellipse.Fill>
+                                    <RadialGradientBrush>
+                                        <GradientStop Color="#00D4FF" Offset="0"/>
+                                        <GradientStop Color="Transparent" Offset="1"/>
+                                    </RadialGradientBrush>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <Path Data="M12 2 L20 6 L20 12 L12 22 L4 12 L4 6 Z"
+                                  Fill="{StaticResource AccentGradient}"
+                                  Width="46" Height="46" Stretch="Uniform">
+                                <Path.Effect>
+                                    <DropShadowEffect BlurRadius="16" Color="#D4A853" Opacity="0.55" ShadowDepth="0"/>
+                                </Path.Effect>
+                            </Path>
+                            <Path Data="M8.2 12.3 L10.7 14.8 L15.8 8.8"
+                                  Stroke="#030508"
+                                  StrokeThickness="2.1"
+                                  StrokeStartLineCap="Round"
+                                  StrokeEndLineCap="Round"
+                                  StrokeLineJoin="Round"
+                                  Width="46" Height="46" Stretch="Uniform"/>
+                        </Grid>
+
+                        <TextBlock HorizontalAlignment="Center" Margin="0,16,0,0" FontFamily="{StaticResource MainFont}" FontWeight="Black" FontSize="24">
+                            <Run Text="TANISH " Foreground="#F0F4FA"/><Run Text="REGEDIT" Foreground="{StaticResource AccentCyan}"/>
+                        </TextBlock>
+                        <TextBlock Text="PREMIUM MEMORY ACCESS SUITE"
+                                   FontFamily="{StaticResource MainFont}"
+                                   FontSize="9.5"
+                                   FontWeight="Bold"
+                                   Foreground="{StaticResource TextDimBrush}"
+                                   HorizontalAlignment="Center"
+                                   Margin="0,6,0,0"/>
+                    </StackPanel>
+
+                    <!-- Tab Switcher -->
+                    <Border Grid.Row="1" Background="#0A0E14"
+                            BorderBrush="{StaticResource BorderBrush}"
+                            BorderThickness="1"
+                            CornerRadius="10"
+                            Padding="3"
+                            Margin="0,0,0,22">
+                        <Grid Height="34">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Name="TabIndicator" Grid.Column="0"
+                                    CornerRadius="8"
+                                    Margin="0"
+                                    Height="30"
+                                    VerticalAlignment="Center">
+                                <Border.Background>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                        <GradientStop Color="#1A2A38" Offset="0"/>
+                                        <GradientStop Color="#14212C" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                                <Border.BorderBrush>
+                                    <SolidColorBrush Color="#2E5C74"/>
+                                </Border.BorderBrush>
+                                <Border.BorderThickness>1</Border.BorderThickness>
+                                <Border.RenderTransform>
+                                    <TranslateTransform X="0"/>
+                                </Border.RenderTransform>
+                            </Border>
+
+                            <Button Name="TabLicenseBtn" Grid.Column="0"
+                                    Background="Transparent" BorderThickness="0"
+                                    Foreground="{StaticResource TextBrush}"
+                                    FontFamily="{StaticResource MainFont}" FontWeight="Bold" FontSize="10.5"
+                                    Content="LICENSE KEY" Cursor="Hand" Click="TabLicenseBtn_Click"
+                                    Style="{StaticResource TitleBarButton}" Width="Auto" Height="30"/>
+
+                            <Button Name="TabAccountBtn" Grid.Column="1"
+                                    Background="Transparent" BorderThickness="0"
+                                    Foreground="{StaticResource TextMutedBrush}"
+                                    FontFamily="{StaticResource MainFont}" FontWeight="Bold" FontSize="10.5"
+                                    Content="ACCOUNT LOGIN" Cursor="Hand" Click="TabAccountBtn_Click"
+                                    Style="{StaticResource TitleBarButton}" Width="Auto" Height="30"/>
+                        </Grid>
+                    </Border>
+
+                    <!-- Input card -->
+                    <Border Grid.Row="2" Style="{StaticResource PremiumCard}" Height="150" VerticalAlignment="Top" Margin="0,0,0,20">
+                        <Grid>
+                            <StackPanel Name="LicensePanel" VerticalAlignment="Center" Visibility="Visible">
+                                <TextBlock Text="ACTIVATION LICENSE KEY" Style="{StaticResource CardTitle}"/>
+                                <TextBox Name="LicenseBox" Style="{StaticResource PremiumTextBox}" Height="42" VerticalContentAlignment="Center" KeyDown="InputBox_KeyDown"/>
+                            </StackPanel>
+
+                            <StackPanel Name="AccountPanel" VerticalAlignment="Center" Visibility="Collapsed">
+                                <TextBlock Text="USERNAME" Style="{StaticResource CardTitle}" Margin="2,0,0,6"/>
+                                <TextBox Name="UserBox" Style="{StaticResource PremiumTextBox}" Height="38" VerticalContentAlignment="Center" Margin="0,0,0,14" KeyDown="InputBox_KeyDown"/>
+
+                                <TextBlock Text="PASSWORD" Style="{StaticResource CardTitle}" Margin="2,0,0,6"/>
+                                <PasswordBox Name="PassBox" Style="{StaticResource PremiumPasswordBox}" Height="38" VerticalContentAlignment="Center" KeyDown="InputBox_KeyDown"/>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+
+                    <!-- Action button -->
+                    <Button Name="LoginBtn" Grid.Row="3"
+                            Style="{StaticResource PremiumAccentButton}"
+                            Content="ENTER TANISH REGEDIT"
+                            Height="46"
+                            Click="LoginBtn_Click"/>
+
+                    <TextBlock Name="StatusTxt" Grid.Row="4"
+                               Text=""
+                               FontFamily="{StaticResource MainFont}"
+                               FontSize="10.5"
+                               FontWeight="SemiBold"
+                               Foreground="{StaticResource TextMutedBrush}"
+                               HorizontalAlignment="Center"
+                               TextAlignment="Center"
+                               TextWrapping="Wrap"
+                               Margin="0,14,0,0"
+                               Height="34"/>
+
+                    <StackPanel Grid.Row="5" HorizontalAlignment="Center" Margin="0,4,0,0">
+                        <Border Height="1" Width="220" Margin="0,0,0,12">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                    <GradientStop Color="Transparent" Offset="0"/>
+                                    <GradientStop Color="#2E3D52" Offset="0.5"/>
+                                    <GradientStop Color="Transparent" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                        </Border>
+                        <TextBlock Text="SECURED BY KEYAUTH  ·  TANISH REGEDIT"
+                                   FontFamily="{StaticResource MainFont}"
+                                   FontWeight="Bold"
+                                   FontSize="8"
+                                   Foreground="{StaticResource TextDimBrush}"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

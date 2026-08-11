@@ -1,0 +1,355 @@
+<Window x:Class="CSharp_ImGui_Client.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:CSharp_ImGui_Client"
+        Title="TANISH REGEDIT - Premium Client"
+        Height="760" Width="390"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Closing="Window_Closing">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <!-- Reusable tab icon templates, colored via the parent ToggleButton's Foreground -->
+            <DataTemplate x:Key="IconBridge"> <!-- Settings/Gear Icon -->
+                <Canvas Width="20" Height="20">
+                    <Path Data="M10 2 A1 1 0 0 1 12 3 L12 4 A6 6 0 0 1 14.5 5.5 L15.5 5 A1 1 0 0 1 17 5.5 L18 7.5 A1 1 0 0 1 17.5 9 L16.5 9.5 A6 6 0 0 1 16.5 10.5 L17.5 11 A1 1 0 0 1 18 12.5 L17 14.5 A1 1 0 0 1 15.5 15 L14.5 14.5 A6 6 0 0 1 12 16 L12 17 A1 1 0 0 1 10 18 L8 18 A1 1 0 0 1 8 17 L8 16 A6 6 0 0 1 5.5 14.5 L4.5 15 A1 1 0 0 1 3 14.5 L2 12.5 A1 1 0 0 1 2.5 11 L3.5 10.5 A6 6 0 0 1 3.5 9.5 L2.5 9 A1 1 0 0 1 2 7.5 L3 5.5 A1 1 0 0 1 4.5 5 L5.5 5.5 A6 6 0 0 1 8 4 L8 3 A1 1 0 0 1 10 2 Z M10 7 A3 3 0 1 0 10 13 A3 3 0 1 0 10 7" 
+                          StrokeThickness="1.5" Fill="Transparent"
+                          Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=ToggleButton}}"/>
+                </Canvas>
+            </DataTemplate>
+
+            <DataTemplate x:Key="IconAimbot"> <!-- Skull Icon -->
+                <Canvas Width="20" Height="20">
+                    <Path Data="M10 1 C5.5 1 3 4.5 3 9 C3 11 3.5 13 4 14 C4 15 5 18 5 18 L6 18 C6 18 6 17 6.5 17 C7 17 7 18 7.5 18 C8 18 8 17 8.5 17 C9 17 9 18 10 18 C11 18 11 17 11.5 17 C12 17 12 18 12.5 18 C13 18 13 17 13.5 17 C14 17 14 18 15 18 L16 18 C16 18 17 15 17 14 C17.5 13 18 11 18 9 C18 4.5 15.5 1 10 1 Z" 
+                          StrokeThickness="1.5" Fill="Transparent"
+                          Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=ToggleButton}}"/>
+                    <Ellipse Canvas.Left="6" Canvas.Top="8" Width="3" Height="3" Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=ToggleButton}}"/>
+                    <Ellipse Canvas.Left="11" Canvas.Top="8" Width="3" Height="3" Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=ToggleButton}}"/>
+                    <Path Data="M9 13 L11 13 L10 11 Z" Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=ToggleButton}}"/>
+                </Canvas>
+            </DataTemplate>
+
+            <DataTemplate x:Key="IconEsp"> <!-- Menu Icon (Three dots) -->
+                <Canvas Width="20" Height="20">
+                    <Ellipse Canvas.Left="4" Canvas.Top="8.5" Width="3" Height="3" Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=ToggleButton}}"/>
+                    <Ellipse Canvas.Left="8.5" Canvas.Top="8.5" Width="3" Height="3" Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=ToggleButton}}"/>
+                    <Ellipse Canvas.Left="13" Canvas.Top="8.5" Width="3" Height="3" Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=ToggleButton}}"/>
+                </Canvas>
+            </DataTemplate>
+
+            <DataTemplate x:Key="IconMisc"> <!-- Snowflake Icon -->
+                <Canvas Width="20" Height="20">
+                    <Path Data="M10 1 L10 19 M1 10 L19 10 M3.5 3.5 L16.5 16.5 M16.5 3.5 L3.5 16.5" 
+                          StrokeThickness="1.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round"
+                          Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=ToggleButton}}"/>
+                    <Path Data="M7 4 L10 1 L13 4 M7 16 L10 19 L13 16 M4 7 L1 10 L4 13 M16 7 L19 10 L16 13 M5.5 8 L3.5 3.5 L8 5.5 M14.5 8 L16.5 3.5 L12 5.5 M5.5 12 L3.5 16.5 L8 14.5 M14.5 12 L16.5 16.5 L12 14.5"
+                          StrokeThickness="1.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round"
+                          Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=ToggleButton}}" Fill="Transparent"/>
+                </Canvas>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Border CornerRadius="20"
+            Background="{StaticResource BgBrush}"
+            BorderBrush="{StaticResource GlassBorderGradient}"
+            BorderThickness="1"
+            ClipToBounds="True">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="30" Color="#000000" Opacity="0.92" ShadowDepth="0"/>
+        </Border.Effect>
+
+        <Grid>
+            <local:ParticleBackgroundEngine x:Name="ParticleCanvas" Opacity="0.35"/>
+
+            <Grid Margin="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>  <!-- Title bar -->
+                    <RowDefinition Height="Auto"/> <!-- Profile card -->
+                    <RowDefinition Height="Auto"/> <!-- Module header -->
+                    <RowDefinition Height="*"/>    <!-- Scrollable content -->
+                    <RowDefinition Height="78"/>  <!-- Bottom nav -->
+                </Grid.RowDefinitions>
+
+                <!-- Title Bar -->
+                <Grid Grid.Row="0" MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="16,0">
+                        <Path Data="M2 2 L7 7 L12 2 M2 12 L7 7 L12 12"
+                              Stroke="{StaticResource AccentCyan}" StrokeThickness="2" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round"
+                              Fill="Transparent" Width="14" Height="14" Stretch="Uniform" Margin="0,0,8,0"/>
+                        <TextBlock FontFamily="{StaticResource DisplayFont}" FontSize="18" FontWeight="Black" VerticalAlignment="Center" Margin="0,0,0,0">
+                            <Run Text="TANISH " Foreground="#FFFFFF"/><Run Text="SILENT KILL" Foreground="{StaticResource AccentCyan}"/>
+                        </TextBlock>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1" Orientation="Horizontal">
+                        <Button Style="{StaticResource TitleBarButton}" Content="—" Click="MinimizeButton_Click" Height="28" Width="32"/>
+                        <Button Style="{StaticResource TitleBarCloseButton}" Content="✕" Click="CloseButton_Click" Height="28" Width="32"/>
+                    </StackPanel>
+                </Grid>
+
+                <!-- Profile Card -->
+                <Border Grid.Row="1" Style="{StaticResource PremiumCard}" Padding="12,10" Margin="14,4,14,10">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0" Width="36" Height="36" Margin="0,0,12,0">
+                            <Ellipse Fill="{StaticResource AccentGradient}"/>
+                            <Ellipse Fill="#0A0E14" Width="30" Height="30"/>
+                            <Path Data="M12 12a4 4 0 100-8 4 4 0 000 8z M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7"
+                                  Stroke="{StaticResource AccentCyan}" StrokeThickness="1.6"
+                                  StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round"
+                                  Fill="Transparent" Width="16" Height="16" Stretch="Uniform"/>
+                        </Grid>
+
+                        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                            <TextBlock Name="ProfileUserTxt" Text="USER" FontFamily="{StaticResource MainFont}" FontWeight="Bold" FontSize="12.5" Foreground="{StaticResource TextBrush}" TextTrimming="CharacterEllipsis"/>
+                            <TextBlock Name="ProfileDaysTxt" Text="—" FontFamily="{StaticResource MainFont}" FontSize="9.5" FontWeight="Bold" Foreground="{StaticResource AccentGold}" Margin="0,1,0,0"/>
+                        </StackPanel>
+
+                        <Border Grid.Column="2" Background="#0F1520" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1" CornerRadius="20" Padding="9,4">
+                            <StackPanel Orientation="Horizontal">
+                                <Grid Width="8" Height="8" Margin="0,0,6,0">
+                                    <Ellipse Name="StatusGlow" Fill="{StaticResource AccentRed}" Opacity="0.5">
+                                        <Ellipse.Effect>
+                                            <BlurEffect Radius="4"/>
+                                        </Ellipse.Effect>
+                                    </Ellipse>
+                                    <Ellipse Name="StatusDot" Fill="{StaticResource AccentRed}"/>
+                                </Grid>
+                                <TextBlock Name="ConnStateTxt" Text="OFFLINE" FontFamily="{StaticResource MainFont}" FontWeight="Bold" FontSize="9" Foreground="{StaticResource TextMutedBrush}" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </Border>
+
+                <!-- Module header -->
+                <StackPanel Grid.Row="2" Margin="18,0,18,10">
+                    <TextBlock Name="ModuleTitleTxt"
+                               Text="BRIDGE CONTROL HUB"
+                               FontFamily="{StaticResource MainFont}"
+                               FontWeight="Black"
+                               FontSize="14"
+                               Foreground="{StaticResource TextBrush}"/>
+                    <Border Height="2" Width="34" HorizontalAlignment="Left" Margin="0,6,0,0" Background="{StaticResource AccentGradient}" CornerRadius="1"/>
+                </StackPanel>
+
+                <!-- Scrollable content -->
+                <ScrollViewer Grid.Row="3" Margin="14,0,14,4" VerticalScrollBarVisibility="Auto">
+                    <Grid>
+
+                        <!-- PANEL: BRIDGE -->
+                        <StackPanel Name="BridgePanel" Visibility="Visible">
+                            <Border Style="{StaticResource PremiumCard}" Margin="0,0,0,12">
+                                <StackPanel>
+                                    <TextBlock Text="CONNECTION" Style="{StaticResource CardTitle}"/>
+
+                                    <Grid Margin="0,0,0,10">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="48"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="HOST" FontFamily="{StaticResource MainFont}" FontSize="9" FontWeight="Bold" Foreground="{StaticResource TextDimBrush}" VerticalAlignment="Center"/>
+                                        <TextBox Name="IpBox" Grid.Column="1" Style="{StaticResource PremiumTextBox}" Text="127.0.0.1" Height="30" Padding="8,2" FontSize="11" VerticalContentAlignment="Center"/>
+                                    </Grid>
+                                    <Grid Margin="0,0,0,14">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="48"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="PORT" FontFamily="{StaticResource MainFont}" FontSize="9" FontWeight="Bold" Foreground="{StaticResource TextDimBrush}" VerticalAlignment="Center"/>
+                                        <TextBox Name="PortBox" Grid.Column="1" Style="{StaticResource PremiumTextBox}" Text="7777" Height="30" Padding="8,2" FontSize="11" VerticalContentAlignment="Center"/>
+                                    </Grid>
+
+                                    <Button Name="ConnectBtn" Content="CONNECT CLIENT" Style="{StaticResource PremiumAccentButton}" Height="38" Click="ConnectBtn_Click"/>
+                                </StackPanel>
+                            </Border>
+
+                            <Border Style="{StaticResource PremiumCard}" Margin="0,0,0,12">
+                                <StackPanel>
+                                    <TextBlock Text="DIAGNOSTICS" Style="{StaticResource CardTitle}"/>
+                                    <TextBlock Name="StatusTxt" Text="Status: OFF" FontFamily="{StaticResource MainFont}" FontSize="12" FontWeight="Bold" Foreground="{StaticResource TextBrush}" Margin="0,0,0,8"/>
+                                    <TextBlock Name="MatchStateTxt" Text="Match: ---" FontFamily="{StaticResource MainFont}" FontSize="11" Foreground="{StaticResource TextMutedBrush}" Margin="0,0,0,4"/>
+                                    <TextBlock Name="RemainingTimeTxt" Text="Timer: ---" FontFamily="{StaticResource MainFont}" FontSize="11" Foreground="{StaticResource TextMutedBrush}" Margin="0,0,0,4"/>
+                                    <TextBlock Name="PlayerCountTxt" Text="Entities: 0" FontFamily="{StaticResource MainFont}" FontSize="11" Foreground="{StaticResource TextMutedBrush}"/>
+                                </StackPanel>
+                            </Border>
+
+                            <Border Style="{StaticResource PremiumCard}" Margin="0,0,0,4">
+                                <StackPanel>
+                                    <TextBlock Text="SYSTEM LOG" Style="{StaticResource CardTitle}"/>
+                                    <Border Background="#070A0F" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1" CornerRadius="8" Padding="8" Height="170">
+                                        <RichTextBox Name="LogBox"
+                                                     Background="Transparent"
+                                                     BorderThickness="0"
+                                                     IsReadOnly="True"
+                                                     FontFamily="Consolas, Courier New"
+                                                     FontSize="9.5"
+                                                     Foreground="{StaticResource AccentGreen}"
+                                                     VerticalScrollBarVisibility="Auto">
+                                            <RichTextBox.Resources>
+                                                <Style TargetType="{x:Type Paragraph}">
+                                                    <Setter Property="Margin" Value="0"/>
+                                                </Style>
+                                            </RichTextBox.Resources>
+                                        </RichTextBox>
+                                    </Border>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+
+                        <!-- PANEL: AIMBOT -->
+                        <StackPanel Name="AimbotPanel" Visibility="Collapsed">
+                            <Border Style="{StaticResource PremiumCard}" Margin="0,0,0,4">
+                                <StackPanel>
+                                    <Border Background="#1988C7" CornerRadius="4,4,4,4" Padding="0,6" Margin="0,0,0,8">
+                                        <TextBlock Text="Aimbot Funtions" Foreground="White" FontWeight="Bold" FontSize="11" HorizontalAlignment="Center" FontFamily="Segoe UI"/>
+                                    </Border>
+                                    <StackPanel Name="AimLeftStack">
+                                        <local:TerminalFeatureRow x:Name="trCoverHitExtend" LabelText="Cover Hit Extend" SubtitleText="Variation Range"/>
+                                        <local:TerminalFeatureRow x:Name="trGlobalSpeedKey" LabelText="Global Speed Key" SubtitleText="Toggle Global Speed On/OFF"/>
+                                        <local:TerminalFeatureRow x:Name="trGlobalSpeed" LabelText="Global Speed" SubtitleText="Speed Up Global Timer"/>
+                                        <local:TerminalFeatureRow x:Name="trFastFireKey" LabelText="Fast Fire Key" SubtitleText="Toggle Fast Fire On/OFF"/>
+                                        <local:TerminalFeatureRow x:Name="trFastFire" LabelText="Fast Fire" SubtitleText="Speed + Fast Fire Rate"/>
+                                        <local:TerminalFeatureRow x:Name="trFastReload" LabelText="Fast Reload" SubtitleText="Increase Reload Speed"/>
+                                        <local:TerminalFeatureRow x:Name="trAimLock" LabelText="Aim Lock" SubtitleText="Lock Target"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+
+                        <!-- PANEL: ESP -->
+                        <StackPanel Name="EspPanel" Visibility="Collapsed">
+                            <Border Style="{StaticResource PremiumCard}" Margin="0,0,0,12">
+                                <StackPanel>
+                                    <Border Background="#1988C7" CornerRadius="4,4,4,4" Padding="0,6" Margin="0,0,0,8">
+                                        <TextBlock Text="ESP Funtions" Foreground="White" FontWeight="Bold" FontSize="11" HorizontalAlignment="Center" FontFamily="Segoe UI"/>
+                                    </Border>
+                                    <StackPanel Name="EspLeftStack">
+                                        <local:TerminalFeatureRow x:Name="trEnableAll" LabelText="Enable ESP"/>
+                                        <local:TerminalFeatureRow x:Name="trEspLine" LabelText="ESP Line"/>
+                                        <local:TerminalFeatureRow x:Name="trEspBox" LabelText="ESP Box"/>
+                                        <local:TerminalFeatureRow x:Name="trEspHealth" LabelText="ESP Health"/>
+                                        <local:TerminalFeatureRow x:Name="trEspName" LabelText="ESP Name"/>
+                                        <local:TerminalFeatureRow x:Name="trEspDistance" LabelText="ESP Distance"/>
+                                        <local:TerminalFeatureRow x:Name="trGhostOn" LabelText="Ghost On"/>
+                                        <local:TerminalFeatureRow x:Name="trHideDamage" LabelText="Hide Damage"/>
+                                    </StackPanel>
+                                    <Button Name="StartExtEspBtn" Content="START EXTERNAL ESP" Height="34" Margin="0,10,0,0" Style="{StaticResource PremiumAccentButton}" Click="StartExtEspBtn_Click"/>
+                                </StackPanel>
+                            </Border>
+
+                            <Border Style="{StaticResource PremiumCard}" Margin="0,0,0,4">
+                                <StackPanel>
+                                    <Border Background="#1988C7" CornerRadius="4,4,4,4" Padding="0,6" Margin="0,0,0,8">
+                                        <TextBlock Text="Radar Telemetry" Foreground="White" FontWeight="Bold" FontSize="11" HorizontalAlignment="Center" FontFamily="Segoe UI"/>
+                                    </Border>
+                                    <ListView Name="PlayersListView"
+                                              Background="Transparent"
+                                              BorderThickness="0"
+                                              FontFamily="{StaticResource MainFont}"
+                                              FontSize="10"
+                                              Height="170"
+                                              Foreground="{StaticResource TextBrush}">
+                                        <ListView.View>
+                                            <GridView>
+                                                <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="140"/>
+                                                <GridViewColumn Header="Dist" DisplayMemberBinding="{Binding Distance}" Width="45"/>
+                                                <GridViewColumn Header="HP" DisplayMemberBinding="{Binding Health}" Width="40"/>
+                                                <GridViewColumn Header="Type" DisplayMemberBinding="{Binding Type}" Width="55"/>
+                                            </GridView>
+                                        </ListView.View>
+                                        <ListView.Resources>
+                                            <Style TargetType="GridViewColumnHeader">
+                                                <Setter Property="Background" Value="#0F1520"/>
+                                                <Setter Property="Foreground" Value="{StaticResource TextMutedBrush}"/>
+                                                <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}"/>
+                                                <Setter Property="Padding" Value="6,3"/>
+                                                <Setter Property="FontSize" Value="9"/>
+                                                <Setter Property="FontWeight" Value="Bold"/>
+                                            </Style>
+                                            <Style TargetType="ListViewItem">
+                                                <Setter Property="Background" Value="Transparent"/>
+                                                <Setter Property="BorderThickness" Value="0"/>
+                                                <Setter Property="Margin" Value="0,1"/>
+                                            </Style>
+                                        </ListView.Resources>
+                                    </ListView>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+
+                        <!-- PANEL: MISC -->
+                        <StackPanel Name="MiscPanel" Visibility="Collapsed">
+                            <Border Style="{StaticResource PremiumCard}" Margin="0,0,0,4">
+                                <StackPanel>
+                                    <Border Background="#1988C7" CornerRadius="4,4,4,4" Padding="0,6" Margin="0,0,0,8">
+                                        <TextBlock Text="Misc Funtions" Foreground="White" FontWeight="Bold" FontSize="11" HorizontalAlignment="Center" FontFamily="Segoe UI"/>
+                                    </Border>
+                                    <StackPanel Name="MiscLeftStack">
+                                        <local:TerminalFeatureRow x:Name="trSpeedRun" LabelText="Speed Run"/>
+                                        <local:TerminalFeatureRow x:Name="trFlyHackOp" LabelText="Fly Hack OP"/>
+                                        <local:TerminalFeatureRow x:Name="trFlyX80" LabelText="Fly x80"/>
+                                        <local:TerminalFeatureRow x:Name="trFlyX40" LabelText="Fly x40"/>
+                                        <local:TerminalFeatureRow x:Name="trSpoofName" LabelText="Spoof Name"/>
+                                        <local:TerminalFeatureRow x:Name="trAutoJump" LabelText="Auto Jump"/>
+                                        <local:TerminalFeatureRow x:Name="trAutoRevive" LabelText="Auto Revive"/>
+                                        <local:TerminalFeatureRow x:Name="trMedikitRun" LabelText="Medikit Run"/>
+                                        <local:TerminalFeatureRow x:Name="trTeleKill" LabelText="Tele Kill"/>
+                                        <local:TerminalFeatureRow x:Name="trResetGuest" LabelText="Reset Guest"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+
+                    </Grid>
+                </ScrollViewer>
+
+                <!-- Bottom Navigation -->
+                <Border Grid.Row="4" Margin="14,8,14,14" Background="#0A0E14" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1" CornerRadius="16">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <ToggleButton Grid.Column="0" Name="NavAimbotBtn" Style="{StaticResource BottomNavButton}" Click="NavBtn_Click" Tag="AimbotPanel" IsChecked="True">
+                            <ContentControl Content="icon" ContentTemplate="{StaticResource IconAimbot}" HorizontalAlignment="Center" Margin="0,2,0,0"/>
+                        </ToggleButton>
+
+                        <ToggleButton Grid.Column="1" Name="NavEspBtn" Style="{StaticResource BottomNavButton}" Click="NavBtn_Click" Tag="EspPanel">
+                            <ContentControl Content="icon" ContentTemplate="{StaticResource IconEsp}" HorizontalAlignment="Center" Margin="0,2,0,0"/>
+                        </ToggleButton>
+
+                        <ToggleButton Grid.Column="2" Name="NavMiscBtn" Style="{StaticResource BottomNavButton}" Click="NavBtn_Click" Tag="MiscPanel">
+                            <ContentControl Content="icon" ContentTemplate="{StaticResource IconMisc}" HorizontalAlignment="Center" Margin="0,2,0,0"/>
+                        </ToggleButton>
+
+                        <ToggleButton Grid.Column="3" Name="NavBridgeBtn" Style="{StaticResource BottomNavButton}" Click="NavBtn_Click" Tag="BridgePanel">
+                            <ContentControl Content="icon" ContentTemplate="{StaticResource IconBridge}" HorizontalAlignment="Center" Margin="0,2,0,0"/>
+                        </ToggleButton>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>
